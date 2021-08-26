@@ -1,0 +1,52 @@
+CHIP qn2
+{
+  IN x0,x1,x2,x3;  //inputs to demux
+  IN y0,y1,y2,y3;  //inputs to demux
+  IN v0,v1,v2,v3;  //inputs to priority encoder
+
+  OUT out0,out1;
+  
+  PARTS:
+  
+  //priority encoder
+  Not(in=v0, out=v01);
+  Not(in=v1, out=v11);
+  Not(in=v2, out=v21);
+  //
+  And(a=v01, b=v21, out=i1);
+  And(a=v01, b=v1, out=i2);
+  Or(a=i1, b=i2, out=s0);
+  //
+  And(a=v01, b=v11, out=s1);
+
+  // mux
+  Not(in=s0, out=s01);
+  Not(in=s1, out=s11);
+
+  And(a=s0, b=s1, out=a);
+  And(a=s01, b=s1, out=b);
+  And(a=s0, b=s11, out=c);
+  And(a=s01, b=s11, out=d);
+
+  And(a=a, b=x0, out=p0);
+  And(a=a, b=y0, out=q0);
+
+  And(a=a, b=x1, out=p1);
+  And(a=a, b=y1, out=q1);
+
+  And(a=a, b=x2, out=p2);
+  And(a=a, b=y2, out=q2);
+
+  And(a=a, b=x3, out=p3);
+  And(a=a, b=y3, out=q3);
+
+  Or(a=p0, b=p1, out=r0);
+  Or(a=p2, b=p3, out=r1);
+  Or(a=r0, b=r1, out=out0); // bit1
+
+  Or(a=q0, b=q1, out=s0);
+  Or(a=q2, b=q3, out=s1);
+  Or(a=s0, b=s1, out=out1); // bit2
+
+
+}

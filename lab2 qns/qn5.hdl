@@ -1,0 +1,49 @@
+
+// USING EVEN PARITY SCHEME CONCEPT
+
+CHIP XOR
+{
+    IN p,q;
+    OUT r;
+    
+    Not(in=p, out=p1);
+    Not(in=q, out=q1);
+    
+    And(a=p, b=q1, out=i0);
+    And(a=p1, b=q, out=i1);
+
+    Or(a=i0, b=i1, out=c);  
+}
+
+CHIP qn5
+{
+ 
+  IN x0,x1,x2,x3,x4,x5,x6,x7;
+  IN y0,y1,y2,y3,y4,y5,y6,y7;
+  OUT z;
+
+  // input1
+  XOR(a=x0, b=x1, out=m0);
+  XOR(a=x2, b=x3, out=m1);
+  XOR(a=x4, b=x5, out=m2);
+  XOR(a=x6, b=x7, out=m3);
+  
+  XOR(a=m0, b=m1, out=n0);
+  XOR(a=m2, b=m3, out=n1);
+
+  XOR(a=n0, b=n1, out=p0); // parity1
+  
+  // input2
+  XOR(a=y0, b=y1, out=r0);
+  XOR(a=y2, b=y3, out=r1);
+  XOR(a=y4, b=y5, out=r2);
+  XOR(a=y6, b=y7, out=r3);
+  
+  XOR(a=r0, b=r1, out=s0);
+  XOR(a=r2, b=r3, out=s1);
+
+  XOR(a=s0, b=s1, out=p1); // parity2
+  
+  XOR(a=p0, b=p1, out=z);
+  
+}

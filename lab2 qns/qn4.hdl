@@ -1,0 +1,40 @@
+
+CHIP XNOR
+{
+    IN p,q;
+    OUT r;
+
+    Nand(a=p, b=q, out=i0);
+    And(a=p, b=q, out=i1);
+
+    Or(a=i0, b=i1, out=c);  
+}
+
+
+CHIP qn4
+{
+    IN x0,x1,x2,x3,x4,x5,x6,x7;
+    IN y0,y1,y2,y3,y4,y5,y6,y7;
+    OUT z;
+
+    XNOR(a=x0, b=y0, out=t0);
+    XNOR(a=x1, b=y1, out=t1);
+    XNOR(a=x2, b=y2, out=t2);
+    XNOR(a=x3, b=y3, out=t3);
+    XNOR(a=x4, b=y4, out=t4);
+    XNOR(a=x5, b=y5, out=t5);
+    XNOR(a=x6, b=y6, out=t6);
+    XNOR(a=x7, b=y7, out=t7);
+
+    And(a=t0, b=t1, out=m0);
+    And(a=t2, b=t3, out=m1);
+    And(a=t4, b=t5, out=m2);
+    And(a=t6, b=t7, out=m3);
+
+    And(a=m0, b=m1, out=n0);
+    And(a=m2, b=m3, out=n1);
+
+    And(a=n0, b=n1, out=z);
+
+
+}

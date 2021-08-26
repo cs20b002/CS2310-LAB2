@@ -1,0 +1,69 @@
+CHIP q5 {
+
+    IN s2,s1,s0,x0,x1;
+    OUT y0,y1,y2,y3,y4,y5,y6,y7;
+    OUT z0,z1,z2,z3,z4,z5,z6,z7;
+    PARTS:
+    // 
+    Not(in=s0, out=s01);
+    Not(in=s1, out=s11);
+    Not(in=s2, out=s21);
+    
+    //
+    //
+
+    // Y
+    And(a=s21, b=s11, out=i0);
+    And(a=i0, b=s01, out=t0);
+    And(a=t0, b=x0, out=y0);
+    //
+    And(a=s21, b=s11, out=i1);
+    And(a=i1, b=s0, out=t1);
+    And(a=t1, b=x0, out=y1);
+    //
+    And(a=s21, b=s1, out=i2);
+    And(a=i2, b=s01, out=t2);
+    And(a=t2, b=x0, out=y2);
+    //
+    And(a=s21, b=s1, out=i3);
+    And(a=i3, b=s0, out=t3);
+    And(a=t3, b=x0, out=y3);
+    //
+    And(a=s2, b=s11, out=i4);
+    And(a=i4, b=s01, out=t4);
+    And(a=t4, b=x0, out=y4);
+    //
+    And(a=s2, b=s11, out=i5);
+    And(a=i5, b=s0, out=t5);
+    And(a=t5, b=x0, out=y5);
+    //
+    And(a=s2, b=s1, out=i6);
+    And(a=i6, b=s01, out=t6);
+    And(a=t6, b=x0, out=y6);
+    //
+    And(a=s2, b=s1, out=i7);
+    And(a=i7, b=s0, out=t7);
+    And(a=t7, b=x0, out=y7); 
+
+    // 
+    // Z
+
+    
+    And(a=t0, b=x1, out=z0);
+    //
+    And(a=t1, b=x1, out=z1);
+    //
+    And(a=t2, b=x1, out=z2);
+    //
+    And(a=t3, b=x1, out=z3);
+    //
+    And(a=t4, b=x1, out=z4);
+    //
+    And(a=t5, b=x1, out=z5);
+    //
+    And(a=t6, b=x1, out=z6);
+    //
+    And(a=t7, b=x1, out=z7); 
+
+
+}
