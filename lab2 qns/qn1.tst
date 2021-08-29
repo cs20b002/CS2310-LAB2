@@ -39,62 +39,62 @@ output;
 
 set x1 0,
 set y1 0,
-set s0 0,
-set s1 1,
+set s0 1,
+set s1 0,
 eval,
 output;
 
 set x1 0,
 set y1 1,
-set s0 0,
-set s1 1,
+set s0 1,
+set s1 0,
 eval,
 output;
 
 set x1 1,
 set y1 0,
-set s0 0,
-set s1 1,
+set s0 1,
+set s1 0,
 eval,
 output;
 
 set x1 1,
 set y1 1,
+set s0 1,
+set s1 0,
+eval,
+output;
+
+
+set x2 0,
+set y2 0,
+set s0 0,
+set s1 1,
+eval,
+output;
+
+set x2 0,
+set y2 1,
+set s0 0,
+set s1 1,
+eval,
+output;
+
+set x2 1,
+set y2 0,
+set s0 0,
+set s1 1,
+eval,
+output;
+
+set x2 1,
+set y2 1,
 set s0 0,
 set s1 1,
 eval,
 output;
 
 
-set x2 0,
-set y2 0,
-set s0 1,
-set s1 0,
-eval,
-output;
-
-set x2 0,
-set y2 1,
-set s0 1,
-set s1 0,
-eval,
-output;
-
-set x2 1,
-set y2 0,
-set s0 1,
-set s1 0,
-eval,
-output;
-
-set x2 1,
-set y2 1,
-set s0 1,
-set s1 0,
-eval,
-output;
-
-
 set x3 0,
 set y3 0,
 set s0 1,
@@ -122,4 +122,3 @@ set s0 1,
 set s1 1,
 eval,
 output;
-
