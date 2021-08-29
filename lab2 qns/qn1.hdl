@@ -7,10 +7,10 @@ CHIP qn1
     Not(in=s0, out=s01);
     Not(in=s1, out=s11);
 
-    And(a=s0, b=s1, out=a);
-    And(a=s01, b=s1, out=b);
-    And(a=s0, b=s11, out=c);
-    And(a=s01, b=s11, out=d);
+    And(a=s11, b=s01, out=a);
+    And(a=s0, b=s11, out=b);
+    And(a=s01, b=s1, out=c);
+    And(a=s0, b=s1, out=d);
 
     And(a=a, b=x0, out=p0);
     And(a=a, b=y0, out=q0);
